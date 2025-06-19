@@ -1,12 +1,17 @@
 name: Daily Tech Tweet
 on:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 12 * * *"  # Runs at 12 PM UTC every day
+  workflow_dispatch:       # Allows manual triggering
+
 jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
       - name: Post Tweet
+        env:
+          TWEET_ENDPOINT: ${{ secrets.TWEET_ENDPOINT }}
         run: |
-          curl https://tech-tweet-bot.onrender.com/api/tweet-now
+          curl -X POST "$TWEET_ENDPOINT"
