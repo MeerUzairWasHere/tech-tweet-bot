@@ -1,0 +1,12 @@
+name: Daily Tech Tweet
+on:
+  schedule:
+    - cron: "0 12 * * *"
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Post Tweet
+        run: |
+          curl http://your-deployed-url/api/tweet
