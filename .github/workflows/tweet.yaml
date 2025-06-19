@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Post Tweet
         run: |
-          curl http://your-deployed-url/api/tweet
+          curl https://tech-tweet-bot.onrender.com/api/tweet-now
