@@ -14,4 +14,4 @@ jobs:
         env:
           TWEET_ENDPOINT: ${{ secrets.TWEET_ENDPOINT }}
         run: |
-          curl -X POST "$TWEET_ENDPOINT"
+          curl "$TWEET_ENDPOINT"
