@@ -12,7 +12,7 @@ async function postTweet(text) {
   try {
     const tweet = `${text}
     
-  #Tech #Programming #Connect`;
+  #Connect #Tech #Developer`;
     const response = await client.v2.tweet(tweet);
     return response.data;
   } catch (error) {
