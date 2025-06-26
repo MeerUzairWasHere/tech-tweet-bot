@@ -10,10 +10,8 @@ const client = new TwitterApi({
 
 async function postTweet(text) {
   try {
-    const tweet = `${text}
-    
-  #Connect #Tech #Developer`;
-    const response = await client.v2.tweet(tweet);
+    console.log(text)
+    const response = await client.v2.tweet(text);
     return response.data;
   } catch (error) {
     console.error("Twitter API Error Details:", {
