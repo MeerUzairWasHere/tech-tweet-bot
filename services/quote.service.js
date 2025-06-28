@@ -5,11 +5,20 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 async function getTechQuote() {
   try {
+    const prompt = `
+    Generate a **random** tech-related tweet (under 280 chars) with **3 hashtags**.  
+    **Rules:**
+    - Topics: SDLC, Web2, Web3, Blockchain, Ethereum, Frontend, Backend, Fullstack, Solana.  
+    - Styles: Fun fact, myth vs reality, quick tip, comparison, or "Did you know?"  
+    - Avoid repeating the same structure (e.g., no "Frontend vs Backend" every time).  
+    - Hashtags must match the topic (e.g., #Blockchain for crypto-related tweets).  
+  `;
+
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash", // or "gemini-pro" depending on your access
-      contents:
-        "Create a tweet that explains a specific use case of open-source tools in FullStack web2,  Web3 development, devops, clis, sdlc, backend, frontend . Add 3 hashtags.",
+      model: "gemini-1.5-flash",
+      contents: prompt,
     });
+
     return response.text;
   } catch (error) {
     console.error("Error generating tech quote:", error);
@@ -18,4 +27,3 @@ async function getTechQuote() {
 }
 
 module.exports = { getTechQuote };
-
