@@ -10,27 +10,36 @@ const client = new TwitterApi({
 
 async function postTweet(text) {
   try {
-    console.log(text)
     const response = await client.v2.tweet(text);
     return response.data;
   } catch (error) {
-    console.error("Twitter API Error Details:", {
+    console.error("Twitter API Error:", {
       status: error.code,
       message: error.message,
       data: error.data,
+      stack: error.stack, // Helps trace the error
     });
     throw error;
   }
 }
+
 async function verifyCredentials() {
   try {
-    const user = await client.currentUser();
-    console.log("Authenticated as:", user.name);
+    const me = await client.v2.me(); // Updated method
+    console.log("Authenticated as:", me.data.name);
     return true;
   } catch (error) {
-    console.error("Auth failed:", error);
+    console.error("Auth failed:", {
+      error: error.message,
+      details: error.data,
+    });
     return false;
   }
 }
+
+// Test function
+(async () => {
+  await verifyCredentials();
+})();
 
 module.exports = { postTweet, verifyCredentials };
