@@ -1,15 +1,16 @@
 name: Daily Tech Tweet
 on:
   schedule:
-    - cron: "0 12 * * *"  # Runs at 12 PM UTC every day
-  workflow_dispatch:       # Allows manual triggering
+    - cron: "0 12 * * *"
+    - cron: "0 0 * * *"
+  workflow_dispatch: 
 
 jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Post Tweet
         env:
           TWEET_ENDPOINT: ${{ secrets.TWEET_ENDPOINT }}
