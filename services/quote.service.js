@@ -10,7 +10,7 @@ async function getTechQuote() {
     **Rules:**
     - Topics:  Programming.
     _ Topics should like facts or any short knowledge that can be used to explain the topic.
-    - Hashtags must match the topic (e.g., #Blockchain for crypto-related tweets).  
+    - Hashtags must match the topic.
   `;
 
     const response = await ai.models.generateContent({
