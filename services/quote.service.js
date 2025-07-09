@@ -9,7 +9,7 @@ async function getTechQuote() {
     Generate a **random** tech-related tweet (under 280 chars) with **3 hashtags**.  
     **Rules:**
     - Topics:  Frontend, Backend, Blockchain, Web3, Solana, Rust, DevOps, JavaScript, AI, etc.
-    _ Topics should be relevant to the tweet an event .
+    _ Topics should like facts or any short knowledge that can be used to explain the topic.
     - Hashtags must match the topic (e.g., #Blockchain for crypto-related tweets).  
   `;
 
