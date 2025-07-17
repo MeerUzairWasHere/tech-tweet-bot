@@ -8,7 +8,7 @@ async function getTechQuote() {
     const prompt = `
     Generate a **random** tech-related tweet (under 280 chars) with **3 hashtags**.  
     **Rules:**
-    - Topics:  Programming.
+    - Topics:  MERN STACK.
     _ Topics should like facts or any short knowledge that can be used to explain the topic.
     - Hashtags must match the topic.
   `;
