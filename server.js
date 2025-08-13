@@ -38,3 +38,14 @@ cron.schedule("*/14 * * * *", async () => {
     console.error(`Health check failed: ${error.message}`);
   }
 });
+
+ cron.schedule("0 9,17 * * *", async () => {
+  try {
+    const response = await axios.post(
+      `https://tech-tweet-bot.onrender.com/api/tweet-now`
+    );
+    console.log(`Tweet triggered successfully: ${response.data.msg}`);
+  } catch (error) {
+    console.error(`Tweet failed: ${error.message}`);
+  }
+});
